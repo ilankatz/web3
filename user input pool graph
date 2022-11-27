@@ -2,6 +2,16 @@ from web3 import Web3
 provider = "" #node provider here
 web3 = Web3(Web3.HTTPProvider(provider))
 
+minABI = [
+  {
+    "constant": True,
+    "inputs": [{ "name": "_owner", "type": "address" }],
+    "name": "balanceOf",
+    "outputs": [{ "name": "balance", "type": "uint256" }],
+    "type": "function",
+  }
+]
+
 class Token:
     def __init__(self, name, address, decimals, contract):
         self.name = name
