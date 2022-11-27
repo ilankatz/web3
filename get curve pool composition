@@ -1,6 +1,6 @@
 from web3 import Web3
 import json
-provider = "https://mainnet.infura.io/v3/062cdeab4e804758a8a87ebc1dc8a2b2"
+provider = "" #node provider here
 web3 = Web3(Web3.HTTPProvider(provider))
 
 
