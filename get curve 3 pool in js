@@ -25,16 +25,13 @@ const tetherCon = new Web3Client.eth.Contract(minABI, tether);
 const daiCon = new Web3Client.eth.Contract(minABI, dai);
 const USDCCon = new Web3Client.eth.Contract(minABI, usdc);
 async function getBalances() {
-  const tethSlice = await tetherCon.methods.balanceOf(walletAddress).call();
-  const daiSlice = await daiCon.methods.balanceOf(walletAddress).call();
-  const USDCSlice = await USDCCon.methods.balanceOf(walletAddress).call();
-  const tethForm = tethSlice/10**6;
-  const daiForm = daiSlice /10**18;
-  const usdcForm = USDCSlice/10**6;
-  const poolSize = tethForm + daiForm + usdcForm;
-  console.log("Tether share: " + tethForm/poolSize*100 + "%")
-  console.log("Dai Share: " + daiForm/poolSize*100 + "%");
-  console.log("USDC Share: " + usdcForm/poolSize*100 + "%");
+  const tethSlice = await tetherCon.methods.balanceOf(walletAddress).call()/10**6;
+  const daiSlice = await daiCon.methods.balanceOf(walletAddress).call()/10**18;
+  const USDCSlice = await USDCCon.methods.balanceOf(walletAddress).call()/10**6;
+  const poolSize = tethSlice + daiSlice + USDCSlice;
+  console.log("Tether share: " + tethSlice/poolSize*100 + "%")
+  console.log("Dai Share: " + daiSlice/poolSize*100 + "%");
+  console.log("USDC Share: " + USDCSlice/poolSize*100 + "%");
 }
 
 getBalances();
