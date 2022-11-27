@@ -9,4 +9,4 @@ Steps:
 4. Get data from a pool given an LP token
 5. Get data from all pools in which a wallet has LPs given the wallet address
 6. Constantly update data from (5) and emit events on certain triggers
-7. Store all that data and make it constantly accessible
+7. Store all that data and make it constantly accessible while still updating
